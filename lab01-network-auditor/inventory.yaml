@@ -1,0 +1,14 @@
+devices:
+  - hostname: 127.0.0.1
+    port: 2201
+    device_type: mikrotik_routeros
+    username: netauto
+    password: "Lab123!"
+    name: MKT-1
+
+  - hostname: 127.0.0.1
+    port: 2202
+    device_type: mikrotik_routeros
+    username: netauto
+    password: "Lab123!"
+    name: MKT-2

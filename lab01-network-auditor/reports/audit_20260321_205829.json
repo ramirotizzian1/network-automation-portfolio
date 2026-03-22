@@ -1,0 +1,36 @@
+[
+  {
+    "name": "MKT-1",
+    "hostname": "127.0.0.1",
+    "status": "reachable",
+    "routeros_version": "7.16 (stable)",
+    "interfaces": [
+      {
+        "interface": "ether1",
+        "address": "192.168.122.170/24",
+        "network": "192.168.122.0",
+        "disabled": "false"
+      }
+    ],
+    "cpu_load": "2%",
+    "free_memory_mb": "173.0MiB",
+    "timestamp": "2026-03-21T20:58:27.404208"
+  },
+  {
+    "name": "MKT-2",
+    "hostname": "127.0.0.1",
+    "status": "reachable",
+    "routeros_version": "7.16 (stable)",
+    "interfaces": [
+      {
+        "interface": "ether1",
+        "address": "192.168.122.41/24",
+        "network": "192.168.122.0",
+        "disabled": "false"
+      }
+    ],
+    "cpu_load": "36%",
+    "free_memory_mb": "173.6MiB",
+    "timestamp": "2026-03-21T20:58:28.332075"
+  }
+]
