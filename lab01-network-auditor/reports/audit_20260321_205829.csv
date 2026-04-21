@@ -1,3 +1,0 @@
-device_name,hostname,status,routeros_version,cpu_load,free_memory_mb,interface,address,network,disabled,timestamp
-MKT-1,127.0.0.1,reachable,7.16 (stable),2%,173.0MiB,ether1,192.168.122.170/24,192.168.122.0,false,2026-03-21T20:58:27.404208
-MKT-2,127.0.0.1,reachable,7.16 (stable),36%,173.6MiB,ether1,192.168.122.41/24,192.168.122.0,false,2026-03-21T20:58:28.332075
