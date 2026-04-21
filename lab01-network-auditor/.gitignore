@@ -1,0 +1,18 @@
+# Entorno virtual
+venv/
+
+# Reportes generados
+reports/
+
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Credenciales y configuración sensible
+*.env
+.env
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
