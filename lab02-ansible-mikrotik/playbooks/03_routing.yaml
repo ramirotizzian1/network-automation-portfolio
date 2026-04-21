@@ -1,0 +1,36 @@
+---
+- name: OSPF Routing Configuration (v7)
+  hosts: mikrotik
+  gather_facts: false
+  module_defaults:
+    group/community.routeros.api:
+      hostname: "{{ ansible_host }}"
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+      port: "{{ ansible_port }}"
+
+  tasks:
+    - name: Configure OSPF instance
+      community.routeros.api_modify:
+        path: routing ospf instance
+        data:
+          - name: "default-v2"
+            router-id: "{{ router_id }}"
+
+    - name: Configure OSPF area
+      community.routeros.api_modify:
+        path: routing ospf area
+        data:
+          - name: "backbone"
+            instance: "default-v2"
+            area-id: "{{ ospf_area }}"
+
+    - name: Configure OSPF interface template for P2P link
+      community.routeros.api_modify:
+        path: routing ospf interface-template
+        data:
+          - area: "backbone"
+            interfaces: "ether2"
+            type: "ptp"
+            networks: "{{ p2p_address | ipaddr('network') }}/{{ p2p_address | ipaddr('prefix') }}"
+...

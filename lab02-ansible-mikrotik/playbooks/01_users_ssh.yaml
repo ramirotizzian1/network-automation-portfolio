@@ -1,0 +1,28 @@
+---
+- name: Management of Users and SSH
+  hosts: mikrotik
+  gather_facts: false
+  module_defaults:
+    group/community.routeros.api:
+      hostname: "{{ ansible_host }}"
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+      port: "{{ ansible_port }}"
+
+  tasks:
+    - name: Ensure users exist with correct permissions
+      community.routeros.api_modify:
+        path: user
+        data: "{{ users }}"
+
+    - name: Configure SSH service
+      community.routeros.api_modify:
+        path: ip service
+        restrict:
+          - field: name
+            values: [ssh]
+        data:
+          - name: ssh
+            port: "{{ ssh_port | default(22) }}"
+            disabled: false
+...

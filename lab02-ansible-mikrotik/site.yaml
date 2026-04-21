@@ -1,0 +1,7 @@
+---
+- name: Master Playbook - MikroTik Lab
+  import_playbook: playbooks/01_users_ssh.yaml
+- import_playbook: playbooks/02_interfaces_vlans.yaml
+- import_playbook: playbooks/03_routing.yaml
+- import_playbook: playbooks/04_firewall.yaml
+...

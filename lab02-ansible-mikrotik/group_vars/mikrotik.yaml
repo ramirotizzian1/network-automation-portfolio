@@ -1,0 +1,19 @@
+users:
+  - name: netauto
+    password: "Lab123!"
+    group: full
+  - name: monitor
+    password: "Monitor123!"
+    group: read
+
+ssh_port: 22
+
+vlans:
+  - vlan-id: 10
+    name: MANAGEMENT
+    interface: ether2
+  - vlan-id: 20
+    name: DATA
+    interface: ether2
+
+ospf_area: "0.0.0.0"

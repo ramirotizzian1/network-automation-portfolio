@@ -1,0 +1,37 @@
+---
+- name: Basic Firewall Configuration
+  hosts: mikrotik
+  gather_facts: false
+  module_defaults:
+    group/community.routeros.api:
+      hostname: "{{ ansible_host }}"
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+      port: "{{ ansible_port }}"
+
+  tasks:
+    - name: Configure basic firewall rules
+      community.routeros.api_modify:
+        path: ip firewall filter
+        data:
+          - chain: input
+            connection-state: established,related
+            action: accept
+            comment: "Allow established/related"
+
+          - chain: input
+            protocol: icmp
+            action: accept
+            comment: "Allow ICMP"
+
+          - chain: input
+            protocol: ospf
+            action: accept
+            comment: "Allow OSPF"
+
+          - chain: input
+            protocol: tcp
+            dst-port: "8728"
+            action: accept
+            comment: "Allow API for management"
+...
