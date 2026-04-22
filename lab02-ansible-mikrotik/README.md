@@ -6,6 +6,33 @@ Este repositorio contiene un laboratorio completo de automatización para router
 
 ## 🌐 Escenario del Laboratorio
 
+```mermaid
+graph LR
+    subgraph MKT1 [MKT-1 / RouterOS v7]
+        direction TB
+        IP1[fa:fa-network-wired 10.0.0.1/30]
+        subgraph VLANs1 [VLANs en ether2]
+            V10_1(VLAN 10: MGMT)
+            V20_1(VLAN 20: DATA)
+        end
+    end
+
+    subgraph MKT2 [MKT-2 / RouterOS v7]
+        direction TB
+        IP2[fa:fa-network-wired 10.0.0.2/30]
+        subgraph VLANs2 [VLANs en ether2]
+            V10_2(VLAN 10: MGMT)
+            V20_2(VLAN 20: DATA)
+        end
+    end
+
+    MKT1 -- "ether2 (P2P Link)" --- MKT2
+    MKT1 -. "OSPF v2 Adjacency" .-> MKT2
+
+    style MKT1 fill:#f9f,stroke:#333,stroke-width:2px
+    style MKT2 fill:#bbf,stroke:#333,stroke-width:2px
+```
+
 La topología consiste en dos routers MikroTik CHR conectados de forma punto a punto:
 
 - **MKT-1:** Router de borde/núcleo (ID: 1.1.1.1)
