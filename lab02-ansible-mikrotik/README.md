@@ -29,8 +29,8 @@ graph LR
     MKT1 -- "ether2 (P2P Link)" --- MKT2
     MKT1 -. "OSPF v2 Adjacency" .-> MKT2
 
-    style MKT1 fill:#f9f,stroke:#333,stroke-width:2px
-    style MKT2 fill:#bbf,stroke:#333,stroke-width:2px
+    style MKT1 fill:#cfe2f3,stroke:#0b5394,stroke-width:2px
+    style MKT2 fill:#d9ead3,stroke:#38761d,stroke-width:2px
 ```
 
 La topología consiste en dos routers MikroTik CHR conectados de forma punto a punto:
